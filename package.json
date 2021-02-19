@@ -1,0 +1,24 @@
+{
+  "name": "14-MVC-Burgermeister_Meisterburger",
+  "version": "1.0.0",
+  "description": "Burger logger with MySQL, Node, Express and a homemade ORM (yum!)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlbhuber/14-MVC-Burgermeister_Meisterburger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tlbhuber/14-MVC-Burgermeister_Meisterburger/issues"
+  },
+  "homepage": "https://github.com/tlbhuber/14-MVC-Burgermeister_Meisterburger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}

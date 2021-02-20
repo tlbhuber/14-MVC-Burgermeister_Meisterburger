@@ -4,6 +4,7 @@ $(document).ready(function () {
       $.ajax("/burgers", {
           type: "GET",
       }).then(function (data) {
+          console.log(data)
           let burgers = data.burgers;
           let length = burgers.length;
 
@@ -48,7 +49,7 @@ $(document).ready(function () {
       })
   });
 
-  $(".submit").on("click", function(event) {
+  $(".btn").on("click", function(event) {
       event.preventDefault();
       var burgerName = $("#burger-input").val().trim();
       console.log(burgerName);

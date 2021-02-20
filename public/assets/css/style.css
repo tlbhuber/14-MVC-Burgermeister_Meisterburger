@@ -1,0 +1,47 @@
+/* ---- GLOBAL ---- */
+
+body {
+  background: url("../img/BobsBackground.jpg");
+  background-size: 100% ;
+  background-repeat: no-repeat;
+ 
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Potta One', cursive;
+  color: red;
+}
+h1 {
+  font-size: 75px;
+}
+
+h1 i {
+  color: black;
+}
+
+/* ---- MAIN SECTION ---- */
+
+.burgers-main {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.btn-danger {
+  background: red;
+  border: black;
+  color: black;
+  font-weight: bold;
+}
+
+.eat-delete ul {
+  list-style: none;
+  text-align: left;
+}
+.eat-delete li {
+  padding: 10px;
+}
+.eat-delete button {
+  margin-right: 10px;
+}

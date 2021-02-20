@@ -1,4 +1,3 @@
-// Import MySQL connection.
 var connection = require("./connection.js");
 
 // Helper function for SQL syntax.
@@ -25,12 +24,9 @@ function objToSql(ob) {
     var value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
-      // if string with spaces, add quotations (Cheese Burger => 'Cheese Burger')
       if (typeof value === "string") {
         value = "'" + value + "'";
       }
-      // e.g. {name: 'Cheese Burger'} => ["name='Cheese Burger'"]
-      // e.g. {devoured: true} => ["devoured=true"]
       arr.push(key + "=" + value);
     }
   }
@@ -39,18 +35,18 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-// Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(tableInput, cb) {
+  // selectAll queries a table for all information.
+  selectAll: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-  insertOne: function(table, cols, vals, cb) {
+  insertOne: function (table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -70,17 +66,16 @@ var orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, devoured: true}
-  updateOne: function(table, objColVals, condition, cb) {
+  updateOne: function (table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
     queryString += " SET ";
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
-    queryString += condition;
+    queryString += " " + condition;
 
     console.log(queryString);
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
@@ -88,12 +83,12 @@ var orm = {
       cb(result);
     });
   },
-  deleteOne: function(table, condition, cb) {
+  deleteOne: function (table, condition, cb) {
     var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
     queryString += condition;
 
-    connection.query(queryString, function(err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
@@ -103,5 +98,4 @@ var orm = {
   }
 };
 
-// Export the orm object for the model (cat.js).
 module.exports = orm;
